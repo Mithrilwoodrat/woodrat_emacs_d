@@ -26,7 +26,7 @@
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
 (display-time) ; 显示时间
-
+(setq make-backup-files nil)
 
 (add-to-list 'load-path' "~/.emacs.d/plugins")
 
