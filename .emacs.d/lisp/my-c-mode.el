@@ -1,23 +1,23 @@
 ;;; my-c-mode.el ---
 ;;;cdet
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
-(custom-set-variables
+;(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(global-semantic-decoration-mode t nil (semantic-decorate-mode))
- '(global-semantic-highlight-edits-mode nil nil (semantic-util-modes))
- '(global-semantic-highlight-func-mode nil nil (semantic-util-modes))
- '(global-semantic-idle-scheduler-mode t nil (semantic-idle))
- '(global-semantic-mru-bookmark-mode t nil (semantic-util-modes))
- '(global-semantic-show-parser-state-mode nil nil (semantic-util-modes))
- '(global-semantic-show-unmatched-syntax-mode nil nil (semantic-util-modes))
- '(global-semantic-stickyfunc-mode nil nil (semantic-util-modes))
- '(global-senator-minor-mode t nil (senator))
- '(inhibit-startup-screen t)
- '(show-paren-mode t)
- '(which-function-mode nil))
+ ;'(global-semantic-decoration-mode t nil (semantic-decorate-mode))
+ ;'(global-semantic-highlight-edits-mode nil nil (semantic-util-modes))
+ ;'(global-semantic-highlight-func-mode nil nil (semantic-util-modes))
+ ;'(global-semantic-idle-scheduler-mode t nil (semantic-idle))
+ ;'(global-semantic-mru-bookmark-mode t nil (semantic-util-modes))
+ ;'(global-semantic-show-parser-state-mode nil nil (semantic-util-modes))
+ ;'(global-semantic-show-unmatched-syntax-mode nil nil (semantic-util-modes))
+ ;'(global-semantic-stickyfunc-mode nil nil (semantic-util-modes))
+ ;'(global-senator-minor-mode t nil (senator))
+ ;'(inhibit-startup-screen t)
+ ;'(show-paren-mode t)
+ ;'(which-function-mode nil))
 ;(custom-set-faces
 ;; custom-set-faces was added by Custom.
 ;; If you edit it by hand, you could mess it up, so be careful.
@@ -25,11 +25,11 @@
 ;; If there is more than one, they won't work right.
 ;;;;;cedet;;;;;
 (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-(semantic-load-enable-minimum-features)
+;(semantic-load-enable-minimum-features)
 ;(semantic-load-enable-guady-code-helpers)
 ;(semantic-load-enable-excessive-code-helpers)
 ;(semantic-load-enable-semantic-debugging-helpers)
-(global-srecode-minor-mode 1)            ; Enable template insertion menu
+;(global-srecode-minor-mode 1)            ; Enable template insertion menu
 ;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/plugins/cc-mode/")
 (load-file "~/.emacs.d/lisp/cc-mode.el")
@@ -125,6 +125,8 @@ g++ -Wall编译"
 
 ;; 输入 inc , 可以自动提示输入文件名称,可以自动补全.
 ;; Provided by yangyingchao@gmail.com
+(add-to-list 'load-path "~/.emacs.d/plugins/semantic/")
+(load "semantic-load.el")
 (load "semantic-gcc.el")
 (mapc
  (lambda (mode)
