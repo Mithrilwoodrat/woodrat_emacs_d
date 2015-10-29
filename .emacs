@@ -33,14 +33,12 @@
 (require 'color-theme)
 (load "~/.emacs.d/lisp/color-theme-molokai.el")
 (color-theme-molokai)
-;;;;;;;;;;;;;;;;
-;;;±àÐ´Scheme´úÂë
 ;;;;;;;;;;;;
 ;; Scheme
 ;;;;;;;;;;;;
 
 (require 'cmuscheme)
-(setq scheme-program-name "petite") ;; Èç¹ûÓÃ Petite ¾Í¸Ä³É "petite"
+(setq scheme-program-name "petite") 
 
 
 ;; bypass the interactive question and start the default interpreter
@@ -182,13 +180,20 @@ Return a list of one element based on major mode."
 ;;;;;;;;;;
 ;;python
 ;;;;;;;;;
-(load-file "~/.emacs.d/emacs-for-python-master/epy-init.el")
-(add-to-list 'load-path "~/.emacs.d/emacs-for-python/") ;; tell where to load
+(defun setup-ipython ()
+  "Setup ipython integration with python-mode"
+  (interactive)
 
-;;;;;;;Configuring the flymake checke
-;(epy-setup-checker "pyflakes %f")
-;;;;;;;ipython integration
-(epy-setup-ipython)
+  (setq
+   python-shell-interpreter "ipython"
+   python-shell-interpreter-args ""
+   python-shell-prompt-regexp "In \[[0-9]+\]: "
+   python-shell-prompt-output-regexp "Out\[[0-9]+\]: "
+   python-shell-completion-setup-code ""
+   python-shell-completion-string-code "';'.join(get_ipython().complete('''%s''')[1])\n")
+  )
+
+(add-hook 'python-mode-hook (setup-ipython))
 ;;;;;line highlighting
 (global-hl-line-mode t) ;; To enable
 (set-face-background 'hl-line "black") ;; change with the color that you like
