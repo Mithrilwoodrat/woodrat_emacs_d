@@ -19,6 +19,7 @@
 (setq visible-bell 1)
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;
+(setq system-uses-terminfo nil)
 (setq column-number-mode t)
 (setq line-number-mode t) ; 显示行号
 (global-linum-mode t)
