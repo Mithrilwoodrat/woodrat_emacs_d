@@ -8,6 +8,8 @@ my emacs files
 * Scheme
 * C/C++
 * MarkDown
+* Go
+* Web
 
 ##Required
 * petite
