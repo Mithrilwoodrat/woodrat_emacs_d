@@ -265,6 +265,10 @@ Return a list of one element based on major mode."
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;;;;;go mode
 (require 'go-mode-autoloads)
+(defun go-mode-common-hook ()
+  (auto-complete-mode t)
+)
+(add-hook 'go-mode-hook 'go-mode-common-hook)
 ;;;;;web mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
