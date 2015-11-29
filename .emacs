@@ -34,6 +34,18 @@
 (require 'color-theme)
 (load "~/.emacs.d/lisp/color-theme-molokai.el")
 (color-theme-molokai)
+
+;;-------------------------------------------------------------
+;;Auto complete
+;;-------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-1.3.1/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete-1.3.1//ac-dict")
+                                        ;(ac-config-default)
+                                        ;(add-to-list 'load-path "~/.emacs.d/")
+                                        ;(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+(ac-config-default)
 ;;;;;;;;;;;;
 ;; Scheme
 ;;;;;;;;;;;;
@@ -44,43 +56,43 @@
 
 ;; bypass the interactive question and start the default interpreter
 (defun scheme-proc ()
-"Return the current Scheme process, starting one if necessary."
-(unless (and scheme-buffer
-(get-buffer scheme-buffer)
-(comint-check-proc scheme-buffer))
-(save-window-excursion
-(run-scheme scheme-program-name)))
-(or (scheme-get-process)
-(error "No current process. See variable `scheme-buffer'")))
+  "Return the current Scheme process, starting one if necessary."
+  (unless (and scheme-buffer
+	       (get-buffer scheme-buffer)
+	       (comint-check-proc scheme-buffer))
+    (save-window-excursion
+      (run-scheme scheme-program-name)))
+  (or (scheme-get-process)
+      (error "No current process. See variable `scheme-buffer'")))
 
 
 (defun scheme-split-window ()
-(cond
-((= 1 (count-windows))
-(delete-other-windows)
-(split-window-vertically (floor (* 0.68 (window-height))))
-(other-window 1)
-(switch-to-buffer "*scheme*")
-(other-window 1))
-((not (find "*scheme*"
-(mapcar (lambda (w) (buffer-name (window-buffer w)))
-(window-list))
-:test 'equal))
-(other-window 1)
-(switch-to-buffer "*scheme*")
-(other-window -1))))
+  (cond
+   ((= 1 (count-windows))
+    (delete-other-windows)
+    (split-window-vertically (floor (* 0.68 (window-height))))
+    (other-window 1)
+    (switch-to-buffer "*scheme*")
+    (other-window 1))
+   ((not (find "*scheme*"
+	       (mapcar (lambda (w) (buffer-name (window-buffer w)))
+		       (window-list))
+	       :test 'equal))
+    (other-window 1)
+    (switch-to-buffer "*scheme*")
+    (other-window -1))))
 
 
 (defun scheme-send-last-sexp-split-window ()
-(interactive)
-(scheme-split-window)
-(scheme-send-last-sexp))
+  (interactive)
+  (scheme-split-window)
+  (scheme-send-last-sexp))
 
 
 (defun scheme-send-definition-split-window ()
-(interactive)
-(scheme-split-window)
-(scheme-send-definition))
+  (interactive)
+  (scheme-split-window)
+  (scheme-send-definition))
 
 ;;(add-hook 'scheme-mode-hook
 ;; (lambda ()
@@ -90,7 +102,48 @@
 ;;;;;;;
 ;c/c++
 ;;;;;;
-(load "~/.emacs.d/lisp/my-c-mode.el")
+;;;;我的C++语言编辑策略
+;;; clang-complete
+(require 'auto-complete-clang-async)  
+(defun ac-cc-mode-setup ()  
+  (setq ac-clang-complete-executable "~/.emacs.d/clang-complete")  
+  (setq ac-sources '(ac-source-clang-async))
+  (ac-clang-launch-completion-process)  
+  )  
+(defun my-ac-config ()  
+  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)  
+  (add-hook 'auto-complete-mode-hook 'ac-common-setup)  
+  (global-auto-complete-mode t))  
+(my-ac-config)  
+(require 'smart-compile-mode)
+(defun my-c-mode-common-hook ()
+  (my-ac-config) ;; use clang-complete
+  (smart-compile-mode) ;; use smart compile
+  (c-set-style "k&r")
+  (setq default-tab-width 4)
+  (setq-default indent-tabs-mode nil)
+  (setq tab-width 4)
+  (setq c-basic-offset 4)
+  (setq c-toggle-auto-newline t)
+  (c-toggle-auto-hungry-state 1)
+  (setq c-macro-shrink-window-flag t)
+  (setq c-macro-preprocessor "cpp")
+  (setq c-macro-cppflags " ")
+  (setq c-macro-prompt-flag t)
+  (setq hs-minor-mode t)
+  (setq abbrev-mode t)
+  (define-key c-mode-base-map [(return)] 'newline-and-indent)
+  )
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+(defun my-c++-mode-hook()
+  (setq tab-width 4 indent-tabs-mode nil)
+  (setq-default indent-tabs-mode nil)
+  (c-set-style "stroustrup")
+  ;; (define-key c++-mode-map [f3] 'replace-regexp)
+  )
+(add-to-list 'auto-mode-alist (cons "\\.h$" #'c++-mode))
+
 ;;;;;;;;;;;;;最近文件
 (require 'recentf)
 (recentf-mode t)
@@ -181,20 +234,21 @@ Return a list of one element based on major mode."
 ;;;;;;;;;;
 ;;python
 ;;;;;;;;;
-(defun setup-ipython ()
-  "Setup ipython integration with python-mode"
-  (interactive)
 
-  (setq
-   python-shell-interpreter "ipython"
-   python-shell-interpreter-args ""
-   python-shell-prompt-regexp "In \[[0-9]+\]: "
-   python-shell-prompt-output-regexp "Out\[[0-9]+\]: "
-   python-shell-completion-setup-code ""
-   python-shell-completion-string-code "';'.join(get_ipython().complete('''%s''')[1])\n")
-  )
+;(defun setup-ipython ()
+ ; "Setup ipython integration with python-mode"
+  ;(interactive)
+  ;(setq
+   ;python-shell-interpreter "ipython"
+   ;python-shell-interpreter-args ""
+   ;python-shell-prompt-regexp "In \[[0-9]+\]: "
+   ;python-shell-prompt-output-regexp "Out\[[0-9]+\]: "
+   ;python-shell-completion-setup-code ""
+   ;python-shell-completion-string-code  "';'.join(get_ipython().complete('''%s''')[1])\n"
+   ;)
+;)
 
-(add-hook 'python-mode-hook (setup-ipython))
+;(add-hook 'python-mode-hook (setup-ipython))
 ;;;;;line highlighting
 (global-hl-line-mode t) ;; To enable
 (set-face-background 'hl-line "black") ;; change with the color that you like
