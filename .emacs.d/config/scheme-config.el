@@ -28,7 +28,8 @@
 ;;;;;;;;;;;;
 
 (require 'cmuscheme)
-(setq scheme-program-name "petite") 
+(setq scheme-program-name "guile") 
+;(setq scheme-program-name "petite") 
 
 
 ;; bypass the interactive question and start the default interpreter
@@ -77,6 +78,10 @@
 (define-key scheme-mode-map (kbd "<f5>") 'scheme-send-last-sexp-split-window)
 (define-key scheme-mode-map (kbd "<f6>") 'scheme-send-definition-split-window)
 
+(defun my-scheme-mode-hook ()
+  (show-paren-mode t))
+
+(add-hook 'scheme-mode-hook 'my-scheme-mode-hook)
 
 (provide 'scheme-config)
 ;;; scheme-config.el ends here
