@@ -15,25 +15,14 @@
 (mapc (lambda (config)
 	(require config))
       '(settings scheme-config c-config tabbar-config web-config go-config
-		 markdown-config python-config))
+		 markdown-config python-config epa-config))
 	
+(require 'popup)
 
 
 
 
 
-
-;;;;gpg
-;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-(require 'epa-file)
-(epa-file-enable)
-;; Using symmetric encryption always
-(setq epa-file-encrypt-to nil)
-;; save the password
-(setq epa-file-cache-passphrase-for-symmetric-encryption t)
-;; auto-save
-(setq epa-file-inhibit-auto-save nil)
 ;;;;templete
 (auto-insert-mode)  ;;; Adds hook to find-files-hook
 (setq auto-insert-directory "~/.emacs.d/mytemplates/") ;;; Or use custom, *NOTE* Trailing slash important
@@ -44,6 +33,7 @@
             )
            auto-insert-alist))
 ;;;;;w3m
+(require 'w3m)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
