@@ -16,7 +16,7 @@ I'm using cdet with sematic before, but it's too heavy, so I removed it.
 
 ## Required
 * guile (for scheme)
-* clang (for auto-complete in c)
+* clang and [clang-complete](https://github.com/Golevka/emacs-clang-complete-async) (for auto-complete in c)
 * gcc, g++
 * ipython (optional, for run python programs)
 * etc.
