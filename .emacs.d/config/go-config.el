@@ -28,6 +28,7 @@
 (defun go-mode-common-hook ()
   (show-paren-mode t)
   (auto-complete-mode t)
+  (setq tab-width 4)
 )
 (add-hook 'go-mode-hook 'go-mode-common-hook)
 
