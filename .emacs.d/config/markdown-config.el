@@ -30,7 +30,14 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-
+(defun my-markdown-config ()
+  ;unbind tabbar keys
+  (define-key markdown-mode-map (kbd "M-<up>") nil)
+  (define-key markdown-mode-map (kbd "M-<down>") nil)
+  (define-key markdown-mode-map (kbd "M-<left>") nil)
+  (define-key markdown-mode-map (kbd "M-<right>") nil))
+ 
+(add-hook 'markdown-mode-hook 'my-markdown-config)
 
 (provide 'markdown-config)
 ;;; markdown-config.el ends here
