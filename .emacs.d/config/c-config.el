@@ -38,11 +38,11 @@
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)  
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)  
   (global-auto-complete-mode t))  
-(my-ac-config)  
+;(my-ac-config)  
 (require 'smart-compile-mode)
 (defun my-c-mode-common-hook ()
-  (my-ac-config) ;; use clang-complete
-  (smart-compile-mode) ;; use smart compile
+  ;(my-ac-config) ;; use clang-complete
+  ;(smart-compile-mode) ;; use smart compile
   (c-set-style "k&r")
   (setq default-tab-width 4)
   (setq-default indent-tabs-mode nil)
@@ -58,7 +58,7 @@
   (setq abbrev-mode t)
   (define-key c-mode-base-map [(return)] 'newline-and-indent)
   )
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-hook 'my-c-mode-common-hook)
 
 (defun my-c++-mode-hook()
   (setq tab-width 4 indent-tabs-mode nil)
@@ -66,6 +66,7 @@
   (c-set-style "stroustrup")
   ;; (define-key c++-mode-map [f3] 'replace-regexp)
   )
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 (add-to-list 'auto-mode-alist (cons "\\.h$" #'c++-mode))
 
 
