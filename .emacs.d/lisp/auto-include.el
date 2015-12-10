@@ -1,23 +1,9 @@
 ;;; my-c-setting.el ---
 (defun auto-include ()
-  ;;;cdet
-  ;(load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
-  ;;;;;cedet;;;;;
-  ;(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-;;;;;;;;;;;;;;;;;
-  ;(add-to-list 'load-path "~/.emacs.d/plugins/cc-mode/")
-  ;(load-file "~/.emacs.d/lisp/cc-mode.el")
-  ;(require 'cc-mode)
-  ;(c-set-offset 'inline-open 0)
-  ;(c-set-offset 'friend '-)
-  ;(c-set-offset 'substatement-open 0)
-  
-;;;;;;;;;;
-
   ;; 输入 inc , 可以自动提示输入文件名称,可以自动补全.
   ;; Provided by yangyingchao@gmail.com
-  (add-to-list 'load-path "~/.emacs.d/plugins/semantic/")
-  (require 'semantic)
+  ;(defun find-include-path () '("/usr/include"))
+  
   (mapc
    (lambda (mode)
      (define-abbrev-table mode '(
@@ -26,10 +12,10 @@
    '(c-mode-abbrev-table c++-mode-abbrev-table))
   
   (defconst yc/inc-dir-list
-    (append (semantic-gcc-get-include-paths "c++") '("./")) "nil")
+    (append '("/usr/include") '("./")) "nil")
   (defvar inc-minibuffer-compl-list nil "nil")
   
-  (defun yc/update-minibuffer-complete-table ( )
+  (defun yc/update-minibuffer-complete-table ()
     "Complete minibuffer"
     (interactive)
     (let ((prompt (minibuffer-prompt))
@@ -99,3 +85,4 @@
 )
 
 (provide 'auto-include)
+

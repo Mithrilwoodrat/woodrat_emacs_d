@@ -40,9 +40,11 @@
   (global-auto-complete-mode t))  
 ;(my-ac-config)  
 (require 'smart-compile-mode)
+(require 'auto-include)
+
 (defun my-c-mode-common-hook ()
-  ;(my-ac-config) ;; use clang-complete
   ;(smart-compile-mode) ;; use smart compile
+  (auto-include) ; enable auto include mode
   (c-set-style "k&r")
   (setq default-tab-width 4)
   (setq-default indent-tabs-mode nil)
