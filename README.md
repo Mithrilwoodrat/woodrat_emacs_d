@@ -7,7 +7,7 @@ fast, and multiple languages supported.
 I'm using cdet with sematic before, but it's too heavy, so I removed it.
 
 ## Suported Language
-* C/C++  (with auto-complete-clang-async and smart-compile)
+* C/C++  (with auto-complete-clang-async smart-compile header-auto-complete)
 * Python (with highlight-indentation)
 * Scheme (from cmu-scheme and yinwang's config)
 * MarkDown (via markdown-mode)
@@ -24,11 +24,10 @@ I'm using cdet with sematic before, but it's too heavy, so I removed it.
 ## plugins
 plugins are included in `.emacs.d/plugins` and `.emacs.d/lisp`
 
-## TODO
-* make a light c header file auto-complete mode.
+* a light c header file auto-complete mode.
 
-base yangyingchao@gmail.com's sematic include plugin, remove sematic require.
+  base yangyingchao@gmail.com's sematic include plugin, remove sematic require.
 
-now just return a simple path, could do more path search in the future.
+  now just return a simple path, could add more path search in the future.
 
-see [auto-include.el](.emacs.d/lisp/auto-include.el) for more info.
+  see [auto-include.el](.emacs.d/lisp/auto-include.el) for more info.
