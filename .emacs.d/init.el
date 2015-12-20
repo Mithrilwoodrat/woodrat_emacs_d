@@ -33,13 +33,13 @@
             )
            auto-insert-alist))
 ;;;;;w3m
-(require 'w3m)
-(custom-set-faces
+;(require 'w3m)
+;(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+; )
 ;;;;;ibus
 ;(load-file "~/.emacs.d/ibus/ibus.el")
 ;(require 'ibus)  
@@ -51,3 +51,13 @@
 ;asm
 (autoload 'nasm-mode "~/.emacs.d/nasm-mode.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
+
+;;;tags
+(setq tags-table-list '("~/.emacs.d/"))
+(setq path-to-ctags "~/.emacs.d/TAGS") ;; path store TAG
+(defun create-tags (dir-name)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (shell-command
+   (format "ctags -f %s -e -R %s" path-to-ctags (directory-file-name dir-name)))
+  )
