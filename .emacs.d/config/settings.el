@@ -33,8 +33,12 @@
 ;(setq default-direct "/home/woodrat/")
 (setq visible-bell 1)
 ;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-(setq system-uses-terminfo nil)
+;(setq system-uses-terminfo nil)) ;; this will make compilation output messy
+;;;add shell hook because of color set in zsh does not work in emacs
+;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;(add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
+;this does not work,use ansi-term instead!
+;;;;
 (setq column-number-mode t)
 (setq line-number-mode t) ; 显示行号
 (global-linum-mode t)
