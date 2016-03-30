@@ -31,6 +31,7 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (defun my-markdown-config ()
+  (setq markdown-command "markdown_py")
   ;unbind tabbar keys
   (define-key markdown-mode-map (kbd "M-<up>") nil)
   (define-key markdown-mode-map (kbd "M-<down>") nil)
