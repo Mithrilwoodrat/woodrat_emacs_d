@@ -42,7 +42,9 @@
 
 ;(add-hook 'python-mode-hook (setup-ipython))
 (defun my-python-hook ()
-  (setq show-paren-mode t))
+  (setq show-paren-mode t)
+  (setq python-shell-interpreter "/usr/bin/ipython")
+  )
 
 ;;;;;line highlighting
 (global-hl-line-mode t) ;; To enable
