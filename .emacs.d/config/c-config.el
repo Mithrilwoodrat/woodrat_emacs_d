@@ -32,6 +32,8 @@
 (defun ac-cc-mode-setup ()  
   (setq ac-clang-complete-executable "~/.emacs.d/clang-complete")  
   (setq ac-sources '(ac-source-clang-async))
+  ;; set default including python lib, add other lib when u need
+  (setq ac-clang-cflags '("-I/usr/include/python2.7/"))
   (ac-clang-launch-completion-process)  
   )  
 (defun my-ac-config ()  
