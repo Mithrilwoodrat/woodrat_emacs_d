@@ -42,7 +42,7 @@
 (setq column-number-mode t)
 (setq line-number-mode t) ; 显示行号
 (global-linum-mode t)
-(setq show-paren-mode t)
+(show-paren-mode t)
 
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)

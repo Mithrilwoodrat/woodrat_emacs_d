@@ -26,7 +26,6 @@
 ;;;;;go mode
 (require 'go-mode-autoloads)
 (defun go-mode-common-hook ()
-  (show-paren-mode t)
   (auto-complete-mode t)
   (setq tab-width 4)
 )

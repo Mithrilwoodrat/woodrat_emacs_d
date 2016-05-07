@@ -42,13 +42,12 @@
 
 ;(add-hook 'python-mode-hook (setup-ipython))
 (defun my-python-hook ()
-  (setq show-paren-mode t)
   (setq python-shell-interpreter "/usr/bin/ipython")
   )
 
 ;;;;;line highlighting
-(global-hl-line-mode t) ;; To enable
-(set-face-background 'hl-line "black") ;; change with the color that you like
+;(global-hl-line-mode t) ;; To enable
+;(set-face-background 'hl-line "black") ;; change with the color that you like
 ;;;;;;Highlight Indentation
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation)
