@@ -61,3 +61,7 @@
   (shell-command
    (format "ctags -f %s -e -R %s" path-to-ctags (directory-file-name dir-name)))
   )
+
+;;multi-term
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
