@@ -26,7 +26,7 @@ plugins are included in `.emacs.d/plugins` and `.emacs.d/lisp`
 
 * a light c header file auto-complete mode.
 
-  base yangyingchao@gmail.com's sematic include plugin, remove sematic require.
+  base yangyingchao@gmail.com's sematic include plugin, removed sematic require.
 
   now just return a simple path, could add more path search in the future.
 
