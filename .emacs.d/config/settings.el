@@ -32,6 +32,7 @@
 (set-selection-coding-system 'utf-8)
 ;(setq default-direct "/home/woodrat/")
 (setq visible-bell 1)
+(setq default-tab-width 4)
 ;;;;;;;;;;;;
 ;(setq system-uses-terminfo nil)) ;; this will make compilation output messy
 ;;;add shell hook because of color set in zsh does not work in emacs
