@@ -47,6 +47,10 @@
 ;(ibus-mode t)
 ;(add-hook 'after-init-hook 'ibus-mode-on)  
 ;(global-set-key (kbd "<C-shift>") 'ibus-toggle) 
+
+;;yaml
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.\\(yml\\|yaml\\)$" . yaml-mode))
  
 ;asm
 (autoload 'nasm-mode "~/.emacs.d/nasm-mode.el" "" t)
@@ -61,6 +65,13 @@
   (shell-command
    (format "ctags -f %s -e -R %s" path-to-ctags (directory-file-name dir-name)))
   )
+
+;;shell
+(setq explicit-shell-file-name "/bin/bash")
+(setq shell-file-name "bash")
+;(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+;(setenv "SHELL" shell-file-name)
+(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 
 ;;multi-term
 (require 'multi-term)
