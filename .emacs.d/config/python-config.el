@@ -41,16 +41,25 @@
 ;)
 
 ;(add-hook 'python-mode-hook (setup-ipython))
+(require 'highlight-indentation)
 (defun my-python-hook ()
   (setq python-shell-interpreter "/usr/bin/ipython")
+  (setq python-shell-interpreter-args "--simple-prompt -i")
+  (setq python-shell-prompt-regexp "In \[[0-9]+\]: "
+		python-shell-prompt-output-regexp "Out\[[0-9]+\]: "
+		python-shell-completion-setup-code ""
+		python-shell-completion-string-code  "';'.join(get_ipython().complete('''%s''')[1])\n"
+		)
+  (setq python-indent-offset 4)
+  (highlight-indentation)
   )
-
+(add-hook 'python-mode-hook 'my-python-hook)
 ;;;;;line highlighting
 ;(global-hl-line-mode t) ;; To enable
 ;(set-face-background 'hl-line "black") ;; change with the color that you like
 ;;;;;;Highlight Indentation
-(require 'highlight-indentation)
-(add-hook 'python-mode-hook 'highlight-indentation)
+;(require 'highlight-indentation)
+;(add-hook 'python-mode-hook 'highlight-indentation)
 ;;;Disabling ropemacs
 ;(setq epy-enable-ropemacs nil)
 
