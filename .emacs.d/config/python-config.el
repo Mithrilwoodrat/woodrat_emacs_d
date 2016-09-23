@@ -32,14 +32,6 @@
   (highlight-indentation)
   )
 (add-hook 'python-mode-hook 'my-python-hook)
-;;;;;line highlighting
-;(global-hl-line-mode t) ;; To enable
-;(set-face-background 'hl-line "black") ;; change with the color that you like
-;;;;;;Highlight Indentation
-;(require 'highlight-indentation)
-;(add-hook 'python-mode-hook 'highlight-indentation)
-;;;Disabling ropemacs
-;(setq epy-enable-ropemacs nil)
 
 
 (provide 'python-config)

@@ -29,8 +29,15 @@
 (setq make-backup-files nil)
 
 (require 'color-theme)
-(load "~/.emacs.d/lisp/color-theme-molokai.el")
-(color-theme-molokai)
+;(load "~/.emacs.d/lisp/color-theme-molokai.el")
+;(color-theme-molokai)
+(require 'color-theme-sanityinc-tomorrow)
+(color-theme-sanityinc-tomorrow-eighties)
+
+;;highlight indentation
+(require 'highlight-indentation)
+(set-face-background 'highlight-indent-face "#696969")
+
 ;;-------------------------------------------------------------
 ;;Auto complete
 ;;-------------------------------------------------------------
