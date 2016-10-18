@@ -32,7 +32,8 @@
 ;(load "~/.emacs.d/lisp/color-theme-molokai.el")
 ;(color-theme-molokai)
 (require 'color-theme-sanityinc-tomorrow)
-(color-theme-sanityinc-tomorrow-eighties)
+(color-theme-sanityinc-tomorrow--define-theme night)
+(color-theme-sanityinc-tomorrow-night)
 
 ;;highlight indentation
 (require 'highlight-indentation)
