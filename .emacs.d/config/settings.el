@@ -61,6 +61,14 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; find all
+
+(defun search-all-buffers (regexp &optional allbufs)
+  "Show all lines matching REGEXP in all buffers."
+  (interactive (occur-read-primary-args))
+  (multi-occur-in-matching-buffers ".*" regexp))
+(global-set-key [f9] 'search-all-buffers)
+
 (provide 'settings)
 ;;; settings.el ends here
 
