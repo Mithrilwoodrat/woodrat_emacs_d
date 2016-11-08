@@ -4,8 +4,10 @@
 ;; just comment it out by adding a semicolon to the start of the line.e
 ;; You may delete these explanatory comments.
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
+(setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
+                         ("melpa" . "http://elpa.zilongshanren.com/melpa/")))
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.org/packages/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
