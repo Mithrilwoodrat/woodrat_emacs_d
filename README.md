@@ -1,12 +1,10 @@
 my_emacs_files
 ==============
 
-my emacs config files with plugins.
-fast, and multiple languages supported.
+My emacs config files with plugins.
+Fast and multiple languages supported.
 
-I'm using cdet with sematic before, but it's too heavy, so I removed it.
-
-## Suported Language
+## Suported Languages
 * C/C++  (with auto-complete-clang-async smart-compile header-auto-complete)
 * Python (with highlight-indentation)
 * Scheme (from cmu-scheme and yinwang's config)
@@ -24,10 +22,6 @@ I'm using cdet with sematic before, but it's too heavy, so I removed it.
 ## plugins
 plugins are included in `.emacs.d/plugins` and `.emacs.d/lisp`
 
-* a light c header file auto-complete mode.
+* a light weight c header file auto-complete mode.
 
-  base yangyingchao@gmail.com's sematic include plugin, removed sematic require.
-
-  now just return a simple path, could add more path search in the future.
-
-  see [auto-include.el](.emacs.d/lisp/auto-include.el) for more info.
+  based on  yangyingchao@gmail.com's sematic include plugin, removed sematic require.
