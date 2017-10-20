@@ -33,6 +33,11 @@
   )
 (add-hook 'python-mode-hook 'my-python-hook)
 
+;; using package-install  jedi first
+;; using jedi:install-server install jekdi server (need virtualenv)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 
 (provide 'python-config)
 ;;; python-config.el ends here
