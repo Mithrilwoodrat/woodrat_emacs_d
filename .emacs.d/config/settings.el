@@ -69,6 +69,12 @@
   (multi-occur-in-matching-buffers ".*" regexp))
 (global-set-key [f9] 'search-all-buffers)
 
+;;winmove
+(global-set-key (kbd "C-<up>") 'windmove-up)
+(global-set-key (kbd "C-<down>") 'windmove-down)
+(global-set-key (kbd "C-<left>") 'windmove-left)
+(global-set-key (kbd "C-<right>") 'windmove-right)
+
 (provide 'settings)
 ;;; settings.el ends here
 
