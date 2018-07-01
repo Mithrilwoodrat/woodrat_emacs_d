@@ -68,14 +68,14 @@
   )
 
 ;;shell
-(setq explicit-shell-file-name "/bin/bash")
+(setq explicit-shell-file-name "C:/msys64/usr/bin/bash.exe")
 (setq shell-file-name "bash")
 ;(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
 ;(setenv "SHELL" shell-file-name)
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 ;;multi-term
 (require 'multi-term)
-(setq multi-term-program "/bin/zsh")
+(setq multi-term-program ""C:/msys64/usr/bin/bash.exe")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
