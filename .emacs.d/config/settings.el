@@ -75,6 +75,9 @@
 (global-set-key (kbd "C-<left>") 'windmove-left)
 (global-set-key (kbd "C-<right>") 'windmove-right)
 
+;; desktop mode
+(desktop-save-mode 1)
+
 (provide 'settings)
 ;;; settings.el ends here
 

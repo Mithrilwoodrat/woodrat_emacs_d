@@ -95,14 +95,23 @@
  )
 
 ;; input method
-(require 'pyim)
-(require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
-(pyim-basedict-enable)   ; 拼音词库，五笔用户 *不需要* 此行设置
-(setq default-input-method "pyim")
-(global-set-key (kbd "C-=") 'toggle-input-method)
+;(require 'pyim)
+;(require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
+;(pyim-basedict-enable)   ; 拼音词库，五笔用户 *不需要* 此行设置
+;(setq default-input-method "pyim")
+;(global-set-key (kbd "C-=") 'toggle-input-method)
 
 ;;
 (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+;;
+(set-face-attribute 'default nil :family "Consolas" :height 110)
+
+;;windows
+(set-selection-coding-system 'utf-16-le)
+
+; (setq tramp-default-method "ssh")
+

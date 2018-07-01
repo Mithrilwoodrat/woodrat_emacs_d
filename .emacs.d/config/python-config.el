@@ -35,7 +35,7 @@
 
 ;; using package-install  jedi first
 ;; using jedi:install-server install jekdi server (need virtualenv)
-
+(setq jedi:server-command (list "python" "C:/Users/username/.emacs.d/elpa/jedi-core-20170121.610/jediepcserver.py"))
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
